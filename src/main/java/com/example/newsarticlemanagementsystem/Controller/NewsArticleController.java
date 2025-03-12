@@ -20,7 +20,7 @@ public class NewsArticleController {
 
     // 1. Get all NewsArticles IN Controller
     @GetMapping("/get")
-    public ResponseEntity<?> getAllNews() {
+    public ResponseEntity getAllNews() {
         return ResponseEntity.ok(newsArticleService.getAllNews());
     }
 
@@ -29,7 +29,7 @@ public class NewsArticleController {
     public ResponseEntity addNew(@RequestBody @Valid NewsArticle newsArticle, Errors errors) {
         if (errors.hasErrors()) {
             String messageError = errors.getFieldError().getDefaultMessage();
-            return ResponseEntity.status(200).body(new ApiResponse(messageError));
+            return ResponseEntity.status(400).body(new ApiResponse(messageError));
         }
         boolean isAddNew = newsArticleService.addNew(newsArticle);
         if (isAddNew) {

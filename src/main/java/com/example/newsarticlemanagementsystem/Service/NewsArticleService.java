@@ -9,11 +9,10 @@ import java.util.List;
 @Service
 public class NewsArticleService {
 
-    private List<NewsArticle> newsArticles = new ArrayList<>();
+    private ArrayList<NewsArticle> newsArticles = new ArrayList<>();
 
     // 1. Get all NewsArticles IN Service
-
-    public List<NewsArticle> getAllNews() {
+    public ArrayList<NewsArticle> getAllNews() {
         return newsArticles;
     }
 
